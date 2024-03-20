@@ -19,8 +19,8 @@ def index(request):
     return render(request,'index.html',context)"""
 
 
-    """
-    feature1=Feature()
+    
+    """feature1=Feature()
     feature1.id=0
     feature1.name="Fast"
     feature1.details="I am Fast and Furious"
