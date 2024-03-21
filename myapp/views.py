@@ -75,7 +75,7 @@ def register(request):
         repeat_password=request.POST['repeat_password']
 
         if password==repeat_password:
-            if User.objects.filter(email=email).exists(): ## this checks if email exists
+            if User.objects.filter(email=email).exists(): ## this checks if email exists in db
                 messages.info(request, 'Email Already Used')  ## this will show the message in the template that is here
                 return redirect('register')
             elif User.objects.filter(username=username).exists():
@@ -91,3 +91,23 @@ def register(request):
             return redirect('register')
     else:
         return render(request,'register.html')
+
+
+def login(request):
+    if request.method=="POST":
+        username1=request.POST["username"]
+        password=request.POST["password"]
+
+        user=auth.authenticate(username=username1,password=password)
+        ##the above line checks the if the username and password matches to any users username and password is in db 
+        ## left username and password is for username and password  in db
+        ##while right username1 and password is the variable that we have mentioned that is what user has provided  
+        
+        if user is not None:
+            auth.login(request,user)
+            return redirect('/')
+        else:
+            messages.info(request,"Credentials Invalid")
+            return redirect('login')
+    else:
+        return render(request,'login.html')
