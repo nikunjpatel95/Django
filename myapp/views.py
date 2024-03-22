@@ -111,3 +111,8 @@ def login(request):
             return redirect('login')
     else:
         return render(request,'login.html')
+
+
+def logout(request):
+    auth.logout(request)   ## this line of code helps user to logout
+    return redirect('/')
