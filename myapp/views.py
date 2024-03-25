@@ -61,10 +61,14 @@ def index(request):
 
     
 
-def counter(request):
+"""def counter(request):
     words=request.POST['text']
     total_words=len(words.split(" "))
     return render(request,'counter.html',{"amount":total_words})
+"""
+def counter(request):
+    posts=[1,2,3,4,5,'nick','tim','john']
+    return render(request,'counter.html',{'posts':posts})
 
 
 def register(request):
