@@ -12,5 +12,7 @@ urlpatterns=[
     path('counter',views.counter,name='counter'),
     path('register',views.register,name='register'),
     path('login',views.login,name="login"),
-    path('logout',views.logout,name='logout')
+    path('logout',views.logout,name='logout'),
+    ##we have webiste/post/ string and naming that string pk. its like varible, str is string, we can also have int
+    path('post/<int:pk>',views.post,name='post')  
     ]

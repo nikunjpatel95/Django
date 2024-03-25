@@ -116,3 +116,7 @@ def login(request):
 def logout(request):
     auth.logout(request)   ## this line of code helps user to logout
     return redirect('/')
+
+ 
+def post(request,pk):
+    return render(request,'post.html',{'pk':pk})
